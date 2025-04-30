@@ -107,7 +107,32 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        emailInputField(),
+        emailInputField('example@email.com', 'assets/icons/ic_email.svg'),
+        const SizedBox(height: 8),
+        Text(
+          'Phone Number',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 8),
+        emailInputField('+93123135', 'assets/icons/ic_number.svg'),
+        const SizedBox(height: 8),
+        Text(
+          'Website',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 8),
+        emailInputField('www.gfx.com'),
+        const SizedBox(height: 8),
         Text(
           'Password',
           style: TextStyle(
@@ -150,10 +175,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget emailInputField() {
+  Widget emailInputField(String hintText, [String? icon]) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'xxx@gmail.com',
+        hintText: hintText,
         hintStyle: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 14,
@@ -161,11 +186,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: SvgPicture.asset(
-            'assets/icons/ic_email.svg',
-            width: 20,
-            height: 20,
-          ),
+          child: SvgPicture.asset(icon?? '', width: 20, height: 20),
         ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 18,
@@ -242,7 +263,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          borderSide: BorderSide(color: AppColors.textFieldBorder, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
